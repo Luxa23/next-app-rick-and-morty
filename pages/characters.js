@@ -2,7 +2,6 @@ import Card from '../components/Card';
 import CardsWrapper from '../components/CardsWrapper';
 import Nav from '../components/Nav';
 import useFetch from '../components/useFetch';
-import Button from '../components/Button';
 
 export default function CharactersPage() {
   const { data } = useFetch('https://rickandmortyapi.com/api/character/');
