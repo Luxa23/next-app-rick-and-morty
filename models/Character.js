@@ -6,10 +6,10 @@ const CharacterSchema = new mongoose.Schema({
     required: [true, 'Please provide a name for this user.'],
     maxlength: [20, 'Name cannot be more than 20 characters'],
   },
-  age: {
+  status: {
     /* Pet's age, if applicable */
 
-    type: Number,
+    type: String,
   },
 });
 
