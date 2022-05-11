@@ -10,14 +10,13 @@ export default function CharactersPage() {
   //const [item, setItem] = useState({});
   //console.log(data);
 
-  async function addItem(item) {
-    // console.log('Hier!!');
+  async function addToCollection(character) {
     const res = await fetch('/api/collection/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(item),
+      body: JSON.stringify(character),
     });
     const message = await res.json();
     console.log(message);
@@ -38,7 +37,7 @@ export default function CharactersPage() {
             </ul>
             <button
               onClick={() => {
-                addItem(character);
+                addToCollection(character);
               }}
             >
               Add to Collection
