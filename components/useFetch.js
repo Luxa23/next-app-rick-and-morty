@@ -1,5 +1,5 @@
 //const url = "https://rickandmortyapi.com/api/episode/";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function useFetch(url) {
   const [data, setData] = useState(null);
@@ -8,11 +8,11 @@ export default function useFetch(url) {
   useEffect(() => {
     if (url) {
       fetch(url)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           setData(json);
         })
-        .catch((error_) => {
+        .catch(error_ => {
           setError(error_);
         });
     }
