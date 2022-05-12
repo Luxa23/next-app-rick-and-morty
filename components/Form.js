@@ -1,26 +1,33 @@
-function submitHandler(event) {
+async function submitHandler(event) {
   event.preventDefault();
   console.log(event.target);
   const formData = new FormData(event.target);
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
-  fetch('/api/users', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formValues),
-  });
+  try {
+    const response = await fetch('/api/user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formValues),
+    });
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export default function Form() {
   return (
-    <form>
-      <label name="name" type="text">
-        Name:<input></input>
+    <form onSubmit={submitHandler}>
+      <label>
+        Name:
+        <input type="text" name="name" />
       </label>
-      <label name="age" type="number">
-        Age<input></input>
+      <label>
+        Age
+        <input type="number" name="age" />
       </label>
-      <button onSubmit={submitHandler}>Submit</button>
+      <button>Submit</button>
     </form>
   );
 }
