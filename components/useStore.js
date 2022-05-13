@@ -8,7 +8,6 @@ const useStore = create(set => {
         fetch(url)
           .then(response => response.json())
           .then(data => {
-            console.log(data);
             set({ fetchedCharacters: data });
           })
 

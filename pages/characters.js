@@ -2,11 +2,9 @@ import { useEffect } from 'react';
 import Card from '../components/Card';
 import CardsWrapper from '../components/CardsWrapper';
 import Nav from '../components/Nav';
-//import useFetch from '../components/useFetch';
 import useStore from '../components/useStore';
 
 export default function CharactersPage() {
-  //const { data } = useFetch('https://rickandmortyapi.com/api/character/');
   const fetchCharacters = useStore(state => state.fetchCharacters);
   const fetchedCharacters = useStore(state => state.fetchedCharacters);
 
